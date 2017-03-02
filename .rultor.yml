@@ -1,4 +1,4 @@
 architect:
 - pinaf
 merge:
-  script: mvn clean install
+  script: mvn clean install -Pjacoco
