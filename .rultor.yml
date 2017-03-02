@@ -1,4 +1,6 @@
 architect:
 - pinaf
+docker:
+  image: "yegor256/java8"
 merge:
   script: mvn clean install -Pjacoco
