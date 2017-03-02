@@ -12,4 +12,11 @@ package nock.model;
  * @since 1.0.0
  */
 public interface Noun {
+
+    /**
+     * Is this noun an atom or a cell?
+     * @return True iff atom
+     */
+    boolean isAtom();
+
 }
