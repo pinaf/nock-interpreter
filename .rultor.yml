@@ -1,0 +1,4 @@
+architect:
+- pinaf
+merge:
+  script: mvn clean install
