@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/pinaf/nock-interpreter.svg?branch=master)](https://travis-ci.org/pinaf/nock-interpreter)
 # Nock Interpreter
 
 A Nock Interpreter
