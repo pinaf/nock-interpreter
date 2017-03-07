@@ -13,36 +13,45 @@ import java.math.BigInteger;
  * @version $Id$
  * @since 1.0.0
  */
+@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public final class AtomBigInteger implements Atom {
 
     /**
      * Value.
      */
-    private final BigInteger number;
+    private final BigInteger value;
 
     /**
      * Ctor.
-     * @param number Value
+     * Creates the Atom a = 0.
      */
-    public AtomBigInteger(final long number) {
-        this(BigInteger.valueOf(number));
+    public AtomBigInteger() {
+        this(0L);
     }
 
     /**
      * Ctor.
-     * @param number Value
+     * @param value Value
+     */
+    public AtomBigInteger(final long value) {
+        this(BigInteger.valueOf(value));
+    }
+
+    /**
+     * Ctor.
+     * @param value Value
      */
     @SuppressWarnings("PMD.ConstructorOnlyInitializesOrCallOtherConstructors")
-    public AtomBigInteger(final BigInteger number) {
-        if (number.compareTo(BigInteger.ZERO) < 0) {
+    public AtomBigInteger(final BigInteger value) {
+        if (value.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Atoms are natural numbers");
         }
-        this.number = number;
+        this.value = value;
     }
 
     @Override
     public BigInteger value() {
-        return this.number;
+        return this.value;
     }
 
 }

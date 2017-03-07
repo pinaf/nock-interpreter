@@ -19,4 +19,16 @@ public interface Noun {
      */
     boolean isAtom();
 
+    /**
+     * Attempts to cast this Noun into an {@link Atom}.
+     * @return Atom, if possible
+     */
+    Atom asAtom();
+
+    /**
+     * Attempts to cast this Noun into an {@link Cell}.
+     * @return Cell, if possible
+     */
+    Cell asCell();
+
 }

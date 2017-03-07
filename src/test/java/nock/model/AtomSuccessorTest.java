@@ -19,7 +19,7 @@ import org.mockito.Mockito;
 public final class AtomSuccessorTest {
 
     /**
-     * Self-identifies as an Atom.
+     * Self-identifies as an {@link Atom}.
      */
     @Test
     public void selfIdentifiesAsAtom() {
@@ -36,17 +36,17 @@ public final class AtomSuccessorTest {
     @Test
     public void increments() {
         MatcherAssert.assertThat(
-            new AtomSuccessor(new AtomBigInteger(0L)).value().longValueExact(),
+            new AtomSuccessor(new AtomBigInteger(0L)).asLong(),
             Matchers.is(1L)
         );
         MatcherAssert.assertThat(
-            new AtomSuccessor(new AtomBigInteger(42L)).value().longValueExact(),
+            new AtomSuccessor(new AtomBigInteger(42L)).asLong(),
             Matchers.is(43L)
         );
         MatcherAssert.assertThat(
             new AtomSuccessor(
                 new AtomSuccessor(new AtomBigInteger(0L))
-            ).value().longValueExact(),
+            ).asLong(),
             Matchers.is(2L)
         );
     }

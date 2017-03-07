@@ -26,14 +26,24 @@ public final class AtomBigIntegerTest {
     public final ExpectedException error = ExpectedException.none();
 
     /**
-     * Self-identifies as an Atom.
+     * Self-identifies as an {@link Atom}.
      */
     @Test
     public void selfIdentifiesAsAtom() {
         MatcherAssert.assertThat(
-            new AtomBigInteger(0L).isAtom(),
+            new AtomBigInteger().isAtom(),
             Matchers.is(true)
         );
+    }
+
+    /**
+     * Fails a cast to {@link Cell}.
+     */
+    @Test
+    public void failsCastToCell() {
+        this.error.expect(IllegalStateException.class);
+        this.error.expectMessage("An Atom is not a Cell!");
+        new AtomBigInteger().asCell();
     }
 
     /**
@@ -53,11 +63,11 @@ public final class AtomBigIntegerTest {
     @Test
     public void increments() {
         MatcherAssert.assertThat(
-            new AtomBigInteger(0L).increment().value().longValueExact(),
+            new AtomBigInteger(0L).increment().asLong(),
             Matchers.is(1L)
         );
         MatcherAssert.assertThat(
-            new AtomBigInteger(42L).increment().value().longValueExact(),
+            new AtomBigInteger(42L).increment().asLong(),
             Matchers.is(43L)
         );
     }
