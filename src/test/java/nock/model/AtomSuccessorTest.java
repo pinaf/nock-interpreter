@@ -51,4 +51,20 @@ public final class AtomSuccessorTest {
         );
     }
 
+    /**
+     * Prints a decimal representation.
+     * @checkstyle MagicNumberCheck (13 lines)
+     */
+    @Test
+    public void printsDecimalRepresentation() {
+        MatcherAssert.assertThat(
+            new AtomSuccessor(new AtomBigInteger()).toString(),
+            Matchers.is("1")
+        );
+        MatcherAssert.assertThat(
+            new AtomSuccessor(new AtomBigInteger(42L)).toString(),
+            Matchers.is("43")
+        );
+    }
+
 }

@@ -31,4 +31,10 @@ public interface Noun {
      */
     Cell asCell();
 
+    /**
+     * Returns a string representation for this Noun.
+     * @return String representation
+     */
+    String asString();
+
 }

@@ -72,4 +72,28 @@ public final class AtomBigIntegerTest {
         );
     }
 
+    /**
+     * Prints a decimal representation.
+     * @checkstyle MagicNumberCheck (21 lines)
+     */
+    @Test
+    public void printsDecimalRepresentation() {
+        MatcherAssert.assertThat(
+            new AtomBigInteger().toString(),
+            Matchers.is("0")
+        );
+        MatcherAssert.assertThat(
+            new AtomBigInteger(1L).toString(),
+            Matchers.is("1")
+        );
+        MatcherAssert.assertThat(
+            new AtomBigInteger(42L).toString(),
+            Matchers.is("42")
+        );
+        MatcherAssert.assertThat(
+            new AtomBigInteger(123456789L).toString(),
+            Matchers.is("123456789")
+        );
+    }
+
 }

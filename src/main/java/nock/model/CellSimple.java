@@ -44,4 +44,9 @@ public final class CellSimple implements Cell {
         return this.right;
     }
 
+    @Override
+    public String toString() {
+        return this.asString();
+    }
+
 }

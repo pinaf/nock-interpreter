@@ -40,6 +40,15 @@ public interface Cell extends Noun {
      */
     Noun right();
 
+    @Override
+    default String asString() {
+        return String.format(
+            "[%s %s]",
+            this.left().asString(),
+            this.right().asString()
+        );
+    }
+
     /**
      * This Cell's left {@link Atom}, if it's indeed one.
      * @return Atom

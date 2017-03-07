@@ -87,4 +87,28 @@ public final class CellSimpleTest {
         );
     }
 
+    /**
+     * Prints canonically.
+     */
+    @Test
+    public void printsCanonically() {
+        final Cell tree = new CellSimple(
+            new CellSimple(
+                new AtomBigInteger(4L),
+                new AtomBigInteger(5L)
+            ),
+            new CellSimple(
+                new AtomBigInteger(6L),
+                new CellSimple(
+                    new AtomBigInteger(14L),
+                    new AtomBigInteger(15L)
+                )
+            )
+        );
+        MatcherAssert.assertThat(
+            tree.toString(),
+            Matchers.is("[[4 5] [6 [14 15]]]")
+        );
+    }
+
 }

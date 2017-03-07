@@ -33,4 +33,9 @@ public final class AtomSuccessor implements Atom {
         return this.atom.value().add(BigInteger.ONE);
     }
 
+    @Override
+    public String toString() {
+        return this.asString();
+    }
+
 }

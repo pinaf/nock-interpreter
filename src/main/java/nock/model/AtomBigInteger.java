@@ -54,5 +54,10 @@ public final class AtomBigInteger implements Atom {
         return this.value;
     }
 
+    @Override
+    public String toString() {
+        return this.asString();
+    }
+
 }
 

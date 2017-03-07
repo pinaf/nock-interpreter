@@ -53,4 +53,9 @@ public interface Atom extends Noun {
         return new AtomSuccessor(this);
     }
 
+    @Override
+    default String asString() {
+        return this.value().toString();
+    }
+
 }
