@@ -1,3 +1,8 @@
+/**
+ * Copyright 2017 Felipe Pina
+ *
+ * MIT License
+ */
 package nock.model;
 
 import org.hamcrest.MatcherAssert;
@@ -24,6 +29,10 @@ public final class AtomSuccessorTest {
         );
     }
 
+    /**
+     * Increments correctly.
+     * @checkstyle MagicNumberCheck (20 lines)
+     */
     @Test
     public void increments() {
         MatcherAssert.assertThat(

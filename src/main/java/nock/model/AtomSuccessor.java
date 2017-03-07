@@ -1,3 +1,8 @@
+/**
+ * Copyright 2017 Felipe Pina
+ *
+ * MIT License
+ */
 package nock.model;
 
 import java.math.BigInteger;

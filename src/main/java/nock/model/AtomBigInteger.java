@@ -1,3 +1,8 @@
+/**
+ * Copyright 2017 Felipe Pina
+ *
+ * MIT License
+ */
 package nock.model;
 
 import java.math.BigInteger;
@@ -13,30 +18,31 @@ public final class AtomBigInteger implements Atom {
     /**
      * Value.
      */
-    private final BigInteger value;
+    private final BigInteger number;
 
     /**
      * Ctor.
-     * @param value Value
+     * @param number Value
      */
-    public AtomBigInteger(final long value) {
-        this(BigInteger.valueOf(value));
+    public AtomBigInteger(final long number) {
+        this(BigInteger.valueOf(number));
     }
 
     /**
      * Ctor.
-     * @param value Value
+     * @param number Value
      */
-    public AtomBigInteger(final BigInteger value) {
-        if (value.compareTo(BigInteger.ZERO) < 0) {
+    @SuppressWarnings("PMD.ConstructorOnlyInitializesOrCallOtherConstructors")
+    public AtomBigInteger(final BigInteger number) {
+        if (number.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Atoms are natural numbers");
         }
-        this.value = value;
+        this.number = number;
     }
 
     @Override
     public BigInteger value() {
-        return this.value;
+        return this.number;
     }
 
 }

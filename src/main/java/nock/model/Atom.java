@@ -29,7 +29,7 @@ public interface Atom extends Noun {
     /**
      * Returns a new Atom whose value is 1 more than the value of this
      * Atom.
-     * @return a + 1
+     * @return The Atom a + 1
      */
     default Atom increment() {
         return new AtomSuccessor(this);

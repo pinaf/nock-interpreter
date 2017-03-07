@@ -1,3 +1,8 @@
+/**
+ * Copyright 2017 Felipe Pina
+ *
+ * MIT License
+ */
 package nock.model;
 
 import org.hamcrest.MatcherAssert;
@@ -43,6 +48,7 @@ public final class AtomBigIntegerTest {
 
     /**
      * Increments correctly.
+     * @checkstyle MagicNumberCheck (15 lines)
      */
     @Test
     public void increments() {
