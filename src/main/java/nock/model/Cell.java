@@ -13,6 +13,11 @@ package nock.model;
  */
 public interface Cell extends Noun {
 
+    @Override
+    default boolean isAtom() {
+        return false;
+    }
+
     /**
      * Cell's left side.
      * @return Noun
