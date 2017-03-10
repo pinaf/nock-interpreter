@@ -3,4 +3,4 @@ architect:
 docker:
   image: "yegor256/java8"
 merge:
-  script: mvn clean install -Pjacoco
+  script: mvn clean install -Pqulice,jacoco
