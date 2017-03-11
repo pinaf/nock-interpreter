@@ -3,7 +3,11 @@
  *
  * MIT License
  */
-package nock.model;
+package nock.model.formula;
+
+import nock.model.Atom;
+import nock.model.Cell;
+import nock.model.Noun;
 
 /**
  * A Formula.
