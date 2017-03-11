@@ -9,9 +9,11 @@ package nock.model;
  * Cell.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
+ * @param <T> Left noun type
+ * @param <U> Right noun type
  * @since 1.0.0
  */
-public interface Cell extends Noun {
+public interface Cell<T extends Noun, U extends Noun> extends Noun {
 
     @Override
     default boolean isAtom() {
@@ -24,7 +26,7 @@ public interface Cell extends Noun {
     }
 
     @Override
-    default Cell asCell() {
+    default Cell<T, U> asCell() {
         return this;
     }
 
@@ -32,13 +34,13 @@ public interface Cell extends Noun {
      * Cell's left side.
      * @return Noun
      */
-    Noun left();
+    T left();
 
     /**
      * This Cell's right {@link Noun}.
      * @return Noun
      */
-    Noun right();
+    U right();
 
     @Override
     default String asString() {
@@ -61,7 +63,7 @@ public interface Cell extends Noun {
      * This Cell's left Cell, if it's indeed one.
      * @return Atom
      */
-    default Cell leftCell() {
+    default Cell<? extends Noun, ? extends Noun> leftCell() {
         return this.left().asCell();
     }
 
@@ -77,7 +79,7 @@ public interface Cell extends Noun {
      * This Cell's right Cell, if it's indeed one.
      * @return Cell
      */
-    default Cell rightCell() {
+    default Cell<? extends Noun, ? extends Noun> rightCell() {
         return this.right().asCell();
     }
 

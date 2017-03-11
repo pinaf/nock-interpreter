@@ -31,7 +31,8 @@ public final class CellSimpleTest {
     @Test
     public void selfIdentifiesAsCell() {
         MatcherAssert.assertThat(
-            new CellSimple(new AtomBigInteger(), new AtomBigInteger()).isAtom(),
+            new CellSimple<>(new AtomBigInteger(), new AtomBigInteger())
+                .isAtom(),
             Matchers.is(false)
         );
     }
@@ -43,7 +44,7 @@ public final class CellSimpleTest {
     public void failsCastToAtom() {
         this.error.expect(IllegalStateException.class);
         this.error.expectMessage("A Cell is not an Atom!");
-        new CellSimple(new AtomBigInteger(), new AtomBigInteger()).asAtom();
+        new CellSimple<>(new AtomBigInteger(), new AtomBigInteger()).asAtom();
     }
 
     /**
@@ -52,14 +53,14 @@ public final class CellSimpleTest {
      */
     @Test
     public void formsTrees() {
-        final Cell tree = new CellSimple(
-            new CellSimple(
+        final Cell<?, ?> tree = new CellSimple<>(
+            new CellSimple<>(
                 new AtomBigInteger(4L),
                 new AtomBigInteger(5L)
             ),
-            new CellSimple(
+            new CellSimple<>(
                 new AtomBigInteger(6L),
-                new CellSimple(
+                new CellSimple<>(
                     new AtomBigInteger(14L),
                     new AtomBigInteger(15L)
                 )
@@ -92,14 +93,14 @@ public final class CellSimpleTest {
      */
     @Test
     public void printsCanonically() {
-        final Cell tree = new CellSimple(
-            new CellSimple(
+        final Cell<?, ?> tree = new CellSimple<>(
+            new CellSimple<>(
                 new AtomBigInteger(4L),
                 new AtomBigInteger(5L)
             ),
-            new CellSimple(
+            new CellSimple<>(
                 new AtomBigInteger(6L),
-                new CellSimple(
+                new CellSimple<>(
                     new AtomBigInteger(14L),
                     new AtomBigInteger(15L)
                 )

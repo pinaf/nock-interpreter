@@ -69,14 +69,14 @@ public final class SlotSimpleTest {
      */
     @Test
     public void addressesSampleTree() {
-        final Noun tree = new CellSimple(
-            new CellSimple(
+        final Noun tree = new CellSimple<>(
+            new CellSimple<>(
                 new AtomBigInteger(4L),
                 new AtomBigInteger(5L)
             ),
-            new CellSimple(
+            new CellSimple<>(
                 new AtomBigInteger(6L),
-                new CellSimple(
+                new CellSimple<>(
                     new AtomBigInteger(14L),
                     new AtomBigInteger(15L)
                 )

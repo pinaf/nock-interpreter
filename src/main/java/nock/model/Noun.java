@@ -29,7 +29,7 @@ public interface Noun {
      * Attempts to cast this Noun into an {@link Cell}.
      * @return Cell, if possible
      */
-    Cell asCell();
+    Cell<? extends Noun, ? extends Noun> asCell();
 
     /**
      * Returns a string representation for this Noun.

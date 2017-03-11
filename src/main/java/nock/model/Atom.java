@@ -26,7 +26,7 @@ public interface Atom extends Noun {
     }
 
     @Override
-    default Cell asCell() {
+    default Cell<? extends Noun, ? extends Noun> asCell() {
         throw new IllegalStateException("An Atom is not a Cell!");
     }
 
