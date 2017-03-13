@@ -15,12 +15,26 @@ import nock.model.Noun;
  */
 public final class NockEngine implements Engine {
 
+    /**
+     * Formulas.
+     */
+    private final Formulas formulas;
+
+    /**
+     * Ctor.
+     * @param formulas Formulas
+     */
+    public NockEngine(final Formulas formulas) {
+        this.formulas = formulas;
+    }
+
     @Override
     public Noun compute(final Noun noun) {
         if (noun.isAtom()) {
             throw new IllegalArgumentException("nock(atom) is an error!");
         }
-        return noun;
+        final SubjectFormulaCell cell = new SubjectFormulaCell(noun.asCell());
+        return this.formulas.fromCell(cell.formula()).compute(cell.subject());
     }
 
 }
