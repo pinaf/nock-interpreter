@@ -3,7 +3,7 @@
  *
  * MIT License
  */
-package nock.engine;
+package nock.model.formula;
 
 import nock.model.Noun;
 
@@ -11,10 +11,9 @@ import nock.model.Noun;
  * A Formula cell.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
- * @param <T> Formula's body's noun type
  * @since 1.0.0
  */
-public interface FormulaCell<T extends Noun> {
+public interface FormulaCell {
 
     /**
      * This formula's opcode.
@@ -26,6 +25,6 @@ public interface FormulaCell<T extends Noun> {
      * This formula's body.
      * @return Body
      */
-    T body();
+    Noun body();
 
 }

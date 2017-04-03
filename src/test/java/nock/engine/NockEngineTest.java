@@ -9,6 +9,7 @@ import nock.model.Atom;
 import nock.model.CellSimple;
 import nock.model.Noun;
 import nock.model.formula.Formula;
+import nock.model.formula.Formulas;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -43,7 +44,7 @@ public final class NockEngineTest {
      * Identity formula.
      */
     @Mock
-    private Formula<Noun> identity;
+    private Formula identity;
 
     /**
      * Initialization.

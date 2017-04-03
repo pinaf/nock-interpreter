@@ -5,7 +5,6 @@
  */
 package nock.model.formula;
 
-import java.math.BigInteger;
 import nock.model.Atom;
 import nock.model.AtomBigInteger;
 import nock.model.Noun;
@@ -18,7 +17,7 @@ import nock.operator.SlotSimple;
  * @version $Id$
  * @since 1.0.0
  */
-public final class FormulaTreeAddressing extends FormulaWrap<Atom> {
+public final class FormulaTreeAddressing implements Formula {
 
     /**
      * Slot operator.
@@ -26,25 +25,30 @@ public final class FormulaTreeAddressing extends FormulaWrap<Atom> {
     private final Slot slot;
 
     /**
+     * Address.
+     */
+    private final Atom address;
+
+    /**
      * Ctor.
      * @param address Tree address
      */
     public FormulaTreeAddressing(final long address) {
-        this(BigInteger.valueOf(address));
+        this(new AtomBigInteger(address));
     }
 
     /**
      * Ctor.
      * @param address Tree address
      */
-    public FormulaTreeAddressing(final BigInteger address) {
-        super(new AtomBigInteger(BigInteger.ZERO), new AtomBigInteger(address));
+    public FormulaTreeAddressing(final Atom address) {
+        this.address = address;
         this.slot = new SlotSimple();
     }
 
     @Override
     public Noun compute(final Noun subject) {
-        return this.slot.apply(this.right(), subject);
+        return this.slot.apply(this.address, subject);
     }
 
 }

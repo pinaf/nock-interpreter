@@ -3,7 +3,7 @@
  *
  * MIT License
  */
-package nock.engine;
+package nock.model.formula;
 
 import nock.model.Atom;
 import nock.model.AtomBigInteger;

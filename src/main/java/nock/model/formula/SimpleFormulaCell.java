@@ -3,7 +3,7 @@
  *
  * MIT License
  */
-package nock.engine;
+package nock.model.formula;
 
 import nock.model.Atom;
 import nock.model.Cell;
@@ -16,7 +16,7 @@ import nock.model.Noun;
  * @version $Id$
  * @since 1.0.0
  */
-public final class SimpleFormulaCell implements FormulaCell<Noun> {
+public final class SimpleFormulaCell implements FormulaCell {
 
     /**
      * Cell representing this formula.

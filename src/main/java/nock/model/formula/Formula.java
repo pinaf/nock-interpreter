@@ -5,18 +5,15 @@
  */
 package nock.model.formula;
 
-import nock.model.Atom;
-import nock.model.Cell;
 import nock.model.Noun;
 
 /**
  * A Formula.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
- * @param <T> Formula's noun type
  * @since 1.0.0
  */
-public interface Formula<T extends Noun> extends Cell<Atom, T> {
+public interface Formula {
 
     /**
      * Computes this formula on the given subject.

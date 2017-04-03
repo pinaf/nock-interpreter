@@ -6,6 +6,10 @@
 package nock.engine;
 
 import nock.model.Noun;
+import nock.model.formula.FormulaSourceTreeAddressing;
+import nock.model.formula.Formulas;
+import nock.model.formula.FormulasMap;
+import nock.model.formula.SubjectFormulaCell;
 
 /**
  * Nock {@link Engine}.
@@ -19,6 +23,19 @@ public final class NockEngine implements Engine {
      * Formulas.
      */
     private final Formulas formulas;
+
+    /**
+     * Ctor.
+     */
+    public NockEngine() {
+        this(
+            new FormulasMap(
+                new FormulasMap.OpCodeFormulaSourcePair(
+                    0L, new FormulaSourceTreeAddressing()
+                )
+            )
+        );
+    }
 
     /**
      * Ctor.

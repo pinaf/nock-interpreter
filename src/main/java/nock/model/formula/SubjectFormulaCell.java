@@ -3,7 +3,7 @@
  *
  * MIT License
  */
-package nock.engine;
+package nock.model.formula;
 
 import nock.model.Cell;
 import nock.model.Noun;
@@ -25,7 +25,7 @@ public final class SubjectFormulaCell {
     /**
      * Formula.
      */
-    private final FormulaCell<? extends Noun> formula;
+    private final FormulaCell formula;
 
     /**
      * Ctor.
@@ -48,7 +48,7 @@ public final class SubjectFormulaCell {
      * The cell's formula.
      * @return Formula
      */
-    public FormulaCell<? extends Noun> formula() {
+    public FormulaCell formula() {
         return this.formula;
     }
 
