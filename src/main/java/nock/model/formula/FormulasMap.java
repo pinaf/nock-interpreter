@@ -49,8 +49,7 @@ public final class FormulasMap implements Formulas {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
-    public Formula fromCell(
-        final FormulaCell cell) {
+    public Formula fromCell(final FormulaCell cell) {
         return Optional
             .ofNullable(this.formulas.get(cell.opcode()))
             .map(source -> source.apply(cell))

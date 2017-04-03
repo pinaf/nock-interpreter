@@ -91,4 +91,12 @@ public final class NockEngineTest {
         Mockito.verify(this.identity).compute(subject);
     }
 
+    /**
+     * Instantiates successfully with the default formulas.
+     */
+    @Test
+    public void instantiatesWithDefaultFormulas() {
+        MatcherAssert.assertThat(new NockEngine(), Matchers.notNullValue());
+    }
+
 }

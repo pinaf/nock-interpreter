@@ -17,6 +17,7 @@ import nock.operator.SlotSimple;
  * @version $Id$
  * @since 1.0.0
  */
+@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public final class FormulaTreeAddressing implements Formula {
 
     /**
@@ -49,6 +50,14 @@ public final class FormulaTreeAddressing implements Formula {
     @Override
     public Noun compute(final Noun subject) {
         return this.slot.apply(this.address, subject);
+    }
+
+    /**
+     * Returns the address.
+     * @return Address
+     */
+    public Atom address() {
+        return this.address;
     }
 
 }
