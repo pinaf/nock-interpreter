@@ -64,6 +64,7 @@ public final class FormulasMap implements Formulas {
     /**
      * Pair of (Opcode, FormulaSource).
      */
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     public static final class OpCodeFormulaSourcePair {
 
         /**
@@ -91,7 +92,7 @@ public final class FormulasMap implements Formulas {
          * Opcode.
          * @return Opcode
          */
-        long opcode() {
+        public long opcode() {
             return this.opcode;
         }
 
@@ -99,7 +100,7 @@ public final class FormulasMap implements Formulas {
          * Formula source.
          * @return Formula source
          */
-        FormulaSource source() {
+        public FormulaSource source() {
             return this.source;
         }
 
