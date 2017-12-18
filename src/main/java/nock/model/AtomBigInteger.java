@@ -39,6 +39,14 @@ public final class AtomBigInteger implements Atom {
 
     /**
      * Ctor.
+     * @param value Value in string format.
+     */
+    public AtomBigInteger(final CharSequence value) {
+        this(new BigInteger(value.toString()));
+    }
+
+    /**
+     * Ctor.
      * @param value Value
      */
     @SuppressWarnings("PMD.ConstructorOnlyInitializesOrCallOtherConstructors")

@@ -5,6 +5,8 @@
  */
 package nock.model;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * Simple implementation of {@link Cell}.
  * @author Felipe Pina (felipe.pina@toptal.com)
@@ -12,11 +14,11 @@ package nock.model;
  * @param <T> Left noun type
  * @param <U> Right noun type
  * @since 1.0.0
- * @checkstyle RegexpSinglelineCheck (4 lines)
+ * @checkstyle LineLength (4 lines)
  */
+@RequiredArgsConstructor
 @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
-public final class CellSimple<T extends Noun, U extends Noun>
-    implements Cell<T, U> {
+public final class CellSimple<T extends Noun, U extends Noun> implements Cell<T, U> {
 
     /**
      * This Cell's left noun.
@@ -27,16 +29,6 @@ public final class CellSimple<T extends Noun, U extends Noun>
      * This Cell's right noun.
      */
     private final U right;
-
-    /**
-     * Ctor.
-     * @param left Left noun
-     * @param right Right noun
-     */
-    public CellSimple(final T left, final U right) {
-        this.left = left;
-        this.right = right;
-    }
 
     @Override
     public T left() {
