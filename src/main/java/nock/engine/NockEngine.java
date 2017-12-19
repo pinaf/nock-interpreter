@@ -6,13 +6,9 @@
 package nock.engine;
 
 import nock.model.Cell;
-import nock.model.CellSimple;
 import nock.model.Noun;
-import nock.model.formula.FormulaSourceConstant;
-import nock.model.formula.FormulaSourceTreeAddressing;
 import nock.model.formula.Formulas;
-import nock.model.formula.FormulasMap;
-import nock.model.formula.SubjectFormulaCell;
+import nock.model.formula.NockFormulas;
 
 /**
  * Nock {@link Engine}.
@@ -31,16 +27,7 @@ public final class NockEngine implements Engine {
      * Ctor.
      */
     public NockEngine() {
-        this(
-            new FormulasMap(
-                new FormulasMap.OpCodeFormulaSourcePair(
-                    0L, new FormulaSourceTreeAddressing()
-                ),
-                new FormulasMap.OpCodeFormulaSourcePair(
-                    1L, new FormulaSourceConstant()
-                )
-            )
-        );
+        this(new NockFormulas());
     }
 
     /**
@@ -63,7 +50,7 @@ public final class NockEngine implements Engine {
     @Override
     public Noun compute(final Noun subject, final Noun head,
         final Noun... tail) {
-        Noun result = this.compute(new CellSimple<>(subject, head));
+        Noun result = this.compute(subject, head);
         for (final Noun formula : tail) {
             result = this.compute(result, formula);
         }
@@ -77,9 +64,7 @@ public final class NockEngine implements Engine {
      * @return Product
      */
     private Noun compute(final Noun subject, final Noun formula) {
-        final SubjectFormulaCell cell =
-            new SubjectFormulaCell(subject, formula);
-        return this.formulas.fromCell(cell.formula()).compute(cell.subject());
+        return this.formulas.fromCell(formula.asCell()).compute(subject);
     }
 
 }

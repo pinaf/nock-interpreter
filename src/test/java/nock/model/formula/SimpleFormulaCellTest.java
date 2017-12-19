@@ -7,6 +7,7 @@ package nock.model.formula;
 
 import nock.model.Atom;
 import nock.model.AtomBigInteger;
+import nock.model.Cell;
 import nock.model.CellSimple;
 import nock.model.Noun;
 import org.hamcrest.MatcherAssert;
@@ -21,6 +22,23 @@ import org.mockito.Mockito;
  * @since 1.0.0
  */
 public final class SimpleFormulaCellTest {
+
+    /**
+     * Call to .toString() matches cell.
+     */
+    @Test
+    public void toStringMatchesCell() {
+        final Cell<Atom, Noun> cell = new CellSimple<>(
+            new AtomBigInteger(),
+            new AtomBigInteger()
+        );
+        MatcherAssert.assertThat(
+            new SimpleFormulaCell(cell).toString(),
+            Matchers.is(
+                String.format("SimpleFormulaCell(cell=%s)", cell.toString())
+            )
+        );
+    }
 
     /**
      * Reads opcode from the cell.

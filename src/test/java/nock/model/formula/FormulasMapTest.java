@@ -43,22 +43,18 @@ public final class FormulasMapTest {
         );
         MatcherAssert.assertThat(
             formulas.fromCell(
-                new SimpleFormulaCell(
-                    new CellSimple<>(
-                        new AtomBigInteger(0L),
-                        Mockito.mock(Noun.class)
-                    )
+                new CellSimple<>(
+                    new AtomBigInteger(0L),
+                    Mockito.mock(Noun.class)
                 )
             ),
             Matchers.is(first)
         );
         MatcherAssert.assertThat(
             formulas.fromCell(
-                new SimpleFormulaCell(
-                    new CellSimple<>(
-                        new AtomBigInteger(1L),
-                        Mockito.mock(Noun.class)
-                    )
+                new CellSimple<>(
+                    new AtomBigInteger(1L),
+                    Mockito.mock(Noun.class)
                 )
             ),
             Matchers.is(second)
@@ -73,11 +69,9 @@ public final class FormulasMapTest {
         this.error.expect(IllegalStateException.class);
         this.error.expectMessage("Unknown opcode: 0");
         new FormulasMap().fromCell(
-            new SimpleFormulaCell(
-                new CellSimple<>(
-                    new AtomBigInteger(0L),
-                    Mockito.mock(Noun.class)
-                )
+            new CellSimple<>(
+                new AtomBigInteger(0L),
+                Mockito.mock(Noun.class)
             )
         );
     }

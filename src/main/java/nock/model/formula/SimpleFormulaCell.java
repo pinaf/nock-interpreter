@@ -5,6 +5,7 @@
  */
 package nock.model.formula;
 
+import lombok.ToString;
 import nock.model.Atom;
 import nock.model.Cell;
 import nock.model.CellSimple;
@@ -16,6 +17,7 @@ import nock.model.Noun;
  * @version $Id$
  * @since 1.0.0
  */
+@ToString
 public final class SimpleFormulaCell implements FormulaCell {
 
     /**

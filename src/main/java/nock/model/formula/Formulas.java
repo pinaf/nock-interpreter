@@ -5,6 +5,9 @@
  */
 package nock.model.formula;
 
+import nock.model.Cell;
+import nock.model.Noun;
+
 /**
  * Formulas.
  * @author Felipe Pina (felipe.pina@toptal.com)
@@ -19,5 +22,14 @@ public interface Formulas {
      * @return Formula, if any
      */
     Formula fromCell(FormulaCell cell);
+
+    /**
+     * Retrieves the formula associated with the given cell.
+     * @param cell Formula cell
+     * @return Formula, if any
+     */
+    default Formula fromCell(final Cell<? extends Noun, ? extends Noun> cell) {
+        return this.fromCell(new SimpleFormulaCell(cell));
+    }
 
 }

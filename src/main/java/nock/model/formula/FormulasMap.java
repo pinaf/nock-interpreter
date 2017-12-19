@@ -47,6 +47,16 @@ public final class FormulasMap implements Formulas {
         this.formulas = new HashMap<>(formulas);
     }
 
+    /**
+     * Adds a formula.
+     * @param formula Formula
+     * @return This instance of {@link Formulas}
+     */
+    public FormulasMap with(final FormulasMap.OpCodeFormulaSourcePair formula) {
+        this.formulas.put(formula.opcode(), formula.source());
+        return this;
+    }
+
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
     public Formula fromCell(final FormulaCell cell) {

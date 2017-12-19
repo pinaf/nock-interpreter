@@ -7,9 +7,11 @@ package nock.engine;
 
 import nock.model.Atom;
 import nock.model.AtomBigInteger;
+import nock.model.Cell;
 import nock.model.CellSimple;
 import nock.model.Noun;
 import nock.model.formula.Formula;
+import nock.model.formula.FormulaCell;
 import nock.model.formula.Formulas;
 import nock.parser.SimpleNockParser;
 import org.hamcrest.MatcherAssert;
@@ -57,8 +59,11 @@ public final class NockEngineTest {
         Mockito
             .when(this.identity.compute(org.mockito.Matchers.any()))
             .thenAnswer(answer -> answer.getArguments()[0]);
+        Mockito.when(
+            this.formulas.fromCell(org.mockito.Matchers.any(FormulaCell.class))
+        ).thenReturn(this.identity);
         Mockito
-            .when(this.formulas.fromCell(org.mockito.Matchers.any()))
+            .when(this.formulas.fromCell(org.mockito.Matchers.any(Cell.class)))
             .thenReturn(this.identity);
     }
 
@@ -89,7 +94,8 @@ public final class NockEngineTest {
         );
         final Noun result = new NockEngine(this.formulas).compute(cell);
         MatcherAssert.assertThat(result, Matchers.is(subject));
-        Mockito.verify(this.formulas).fromCell(org.mockito.Matchers.any());
+        Mockito.verify(this.formulas)
+            .fromCell(org.mockito.Matchers.any(Cell.class));
         Mockito.verify(this.identity).compute(subject);
     }
 
@@ -104,6 +110,13 @@ public final class NockEngineTest {
             new SimpleNockParser("[0 3]").parse()
         );
         MatcherAssert.assertThat(result.asString(), Matchers.is("5"));
+        MatcherAssert.assertThat(
+            new NockEngine().compute(
+                new AtomBigInteger("77"),
+                new SimpleNockParser("[2 [[1 42] [1 [1 [153 218]]]]]").parse()
+            ).asString(),
+            Matchers.is("[153 218]")
+        );
     }
 
     /**
