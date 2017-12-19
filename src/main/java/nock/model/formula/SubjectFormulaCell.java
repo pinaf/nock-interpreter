@@ -29,11 +29,22 @@ public final class SubjectFormulaCell {
 
     /**
      * Ctor.
-     * @param cell Cell of type [subject formula]
+     * @param subject Subject
+     * @param formula Formula
      */
-    public SubjectFormulaCell(final Cell<? extends Noun, ? extends Noun> cell) {
-        this.subject = cell.left();
-        this.formula = new SimpleFormulaCell(cell.rightCell());
+    public SubjectFormulaCell(final Noun subject, final Noun formula) {
+        this(subject, formula.asCell());
+    }
+
+    /**
+     * Ctor.
+     * @param subject Subject
+     * @param formula Formula
+     */
+    public SubjectFormulaCell(final Noun subject,
+        final Cell<? extends Noun, ? extends Noun> formula) {
+        this.subject = subject;
+        this.formula = new SimpleFormulaCell(formula);
     }
 
     /**

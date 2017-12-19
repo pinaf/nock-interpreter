@@ -22,4 +22,13 @@ public interface Engine {
      */
     Noun compute(Noun noun);
 
+    /**
+     * Chain computes the given formulas, in order.
+     * @param subject Subject
+     * @param head Head formula
+     * @param tail Tail formulas
+     * @return Resulting noun
+     */
+    Noun compute(Noun subject, Noun head, Noun... tail);
+
 }

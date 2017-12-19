@@ -5,7 +5,9 @@
  */
 package nock.model.formula;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.Accessors;
 import nock.model.Noun;
 
 /**
@@ -14,12 +16,14 @@ import nock.model.Noun;
  * @version $Id$
  * @since 1.0
  */
+@Accessors(fluent = true)
 @RequiredArgsConstructor
 public final class FormulaConstant implements Formula {
 
     /**
      * Constant product.
      */
+    @Getter
     private final Noun constant;
 
     @Override

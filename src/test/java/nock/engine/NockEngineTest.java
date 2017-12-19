@@ -6,10 +6,12 @@
 package nock.engine;
 
 import nock.model.Atom;
+import nock.model.AtomBigInteger;
 import nock.model.CellSimple;
 import nock.model.Noun;
 import nock.model.formula.Formula;
 import nock.model.formula.Formulas;
+import nock.parser.SimpleNockParser;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -89,6 +91,19 @@ public final class NockEngineTest {
         MatcherAssert.assertThat(result, Matchers.is(subject));
         Mockito.verify(this.formulas).fromCell(org.mockito.Matchers.any());
         Mockito.verify(this.identity).compute(subject);
+    }
+
+    /**
+     * Succeeds when chain computing on an initial subject.
+     */
+    @Test
+    public void chainComputes() {
+        final Noun result = new NockEngine().compute(
+            new AtomBigInteger("1"),
+            new SimpleNockParser("[1 [4 5]]").parse(),
+            new SimpleNockParser("[0 3]").parse()
+        );
+        MatcherAssert.assertThat(result.asString(), Matchers.is("5"));
     }
 
     /**
