@@ -125,6 +125,13 @@ public final class NockEngineTest {
             ).asString(),
             Matchers.is("0")
         );
+        MatcherAssert.assertThat(
+            new NockEngine().compute(
+                new AtomBigInteger("57"),
+                new SimpleNockParser("[4 [0 1]]").parse()
+            ).asString(),
+            Matchers.is("58")
+        );
     }
 
     /**

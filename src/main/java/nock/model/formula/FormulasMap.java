@@ -48,7 +48,18 @@ public final class FormulasMap implements Formulas {
     }
 
     /**
-     * Adds a formula.
+     * Adds a formula source.
+     * @param opcode Opcode
+     * @param source Formula source
+     * @return This instance of {@link Formulas}
+     */
+    public FormulasMap with(final long opcode, final FormulaSource source) {
+        this.with(new FormulasMap.OpCodeFormulaSourcePair(opcode, source));
+        return this;
+    }
+
+    /**
+     * Adds a formula source.
      * @param formula Formula
      * @return This instance of {@link Formulas}
      */

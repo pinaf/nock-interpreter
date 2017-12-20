@@ -35,27 +35,14 @@ public final class NockFormulas implements Formulas {
      * @return Formulas
      */
     private static Formulas build() {
-        final FormulasMap map = new FormulasMap(
-            new FormulasMap.OpCodeFormulaSourcePair(
-                0L,
-                new FormulaSourceTreeAddressing()
-            ),
-            new FormulasMap.OpCodeFormulaSourcePair(
-                1L,
-                new FormulaSourceConstant()
-            ),
-            new FormulasMap.OpCodeFormulaSourcePair(
-                3L,
-                noun -> new FormulaCellCheck()
-            )
-        );
-        map.with(
-            new FormulasMap.OpCodeFormulaSourcePair(
-                2L,
-                new FormulaSourceEval(map)
-            )
-        );
-        return map;
+        final FormulasMap formulas = new FormulasMap();
+        // @checkstyle MagicNumber (6 lines)
+        return formulas
+            .with(0L, new FormulaSourceTreeAddressing())
+            .with(1L, new FormulaSourceConstant())
+            .with(2L, new FormulaSourceEval(formulas))
+            .with(3L, noun -> new FormulaCellCheck())
+            .with(4L, new FormulaSourceIncrement(formulas));
     }
 
 }
