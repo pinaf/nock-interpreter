@@ -21,11 +21,11 @@ public final class FormulaIncrement implements Formula {
     /**
      * Formula.
      */
-    private final Formula left;
+    private final Formula formula;
 
     @Override
     public Noun compute(final Noun subject) {
-        return this.left.compute(subject).asAtom().increment();
+        return this.formula.compute(subject).asAtom().increment();
     }
 
 }

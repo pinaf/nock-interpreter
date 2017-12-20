@@ -5,6 +5,7 @@
  */
 package nock.model.formula;
 
+import lombok.RequiredArgsConstructor;
 import nock.model.AtomBigInteger;
 import nock.model.Noun;
 
@@ -15,12 +16,18 @@ import nock.model.Noun;
  * @version $Id$
  * @since 1.0
  */
+@RequiredArgsConstructor
 public final class FormulaCellCheck implements Formula  {
+
+    /**
+     * Formula.
+     */
+    private final Formula formula;
 
     @Override
     public Noun compute(final Noun subject) {
         final long result;
-        if (subject.isAtom()) {
+        if (this.formula.compute(subject).isAtom()) {
             result = 1L;
         } else {
             result = 0L;

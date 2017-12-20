@@ -6,6 +6,8 @@
 package nock.model;
 
 import java.math.BigInteger;
+import lombok.Getter;
+import lombok.experimental.Accessors;
 
 /**
  * A {@link BigInteger} backed implementation of {@link Atom}.
@@ -13,12 +15,14 @@ import java.math.BigInteger;
  * @version $Id$
  * @since 1.0.0
  */
-@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+@Accessors(fluent = true)
+@SuppressWarnings({"PMD.AvoidFieldNameMatchingMethodName", "PMD.SingularField"})
 public final class AtomBigInteger implements Atom {
 
     /**
      * Value.
      */
+    @Getter
     private final BigInteger value;
 
     /**
@@ -55,11 +59,6 @@ public final class AtomBigInteger implements Atom {
             throw new IllegalArgumentException("Atoms are natural numbers");
         }
         this.value = value;
-    }
-
-    @Override
-    public BigInteger value() {
-        return this.value;
     }
 
     @Override

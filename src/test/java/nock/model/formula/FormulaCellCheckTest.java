@@ -25,7 +25,7 @@ public final class FormulaCellCheckTest {
      */
     @Test
     public void worksOnAtoms() {
-        final Formula formula = new FormulaCellCheck();
+        final Formula formula = new FormulaCellCheck(new FormulaIdentity());
         // @checkstyle MagicNumber (1 line)
         LongStream.of(0L, 1L, 12L, 45L, 8740L)
             .mapToObj(AtomBigInteger::new)
@@ -42,7 +42,7 @@ public final class FormulaCellCheckTest {
      */
     @Test
     public void worksOnCells() {
-        final Formula formula = new FormulaCellCheck();
+        final Formula formula = new FormulaCellCheck(new FormulaIdentity());
         // @checkstyle MagicNumber (1 line)
         LongStream.of(0L, 1L, 12L, 45L, 8740L)
             .mapToObj(

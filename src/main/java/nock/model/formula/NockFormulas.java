@@ -41,7 +41,7 @@ public final class NockFormulas implements Formulas {
             .with(0L, new FormulaSourceTreeAddressing())
             .with(1L, new FormulaSourceConstant())
             .with(2L, new FormulaSourceEval(formulas))
-            .with(3L, noun -> new FormulaCellCheck())
+            .with(3L, new FormulaSourceCellCheck(formulas))
             .with(4L, new FormulaSourceIncrement(formulas));
     }
 
