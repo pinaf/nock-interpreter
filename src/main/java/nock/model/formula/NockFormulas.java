@@ -43,6 +43,10 @@ public final class NockFormulas implements Formulas {
             new FormulasMap.OpCodeFormulaSourcePair(
                 1L,
                 new FormulaSourceConstant()
+            ),
+            new FormulasMap.OpCodeFormulaSourcePair(
+                3L,
+                noun -> new FormulaCellCheck()
             )
         );
         map.with(

@@ -117,6 +117,14 @@ public final class NockEngineTest {
             ).asString(),
             Matchers.is("[153 218]")
         );
+        MatcherAssert.assertThat(
+            new NockEngine().compute(
+                new AtomBigInteger("77"),
+                new SimpleNockParser("[2 [[0 1] [1 [1 [153 218]]]]]").parse(),
+                new SimpleNockParser("[3 [0 1]]").parse()
+            ).asString(),
+            Matchers.is("0")
+        );
     }
 
     /**
